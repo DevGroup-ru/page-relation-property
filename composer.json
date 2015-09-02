@@ -1,0 +1,11 @@
+{
+  "name": "dotplant/page-relation-property",
+  "description": "Related pages property handler",
+  "type": "dotplant2-extension",
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "DotPlant\\PageRelationProperty\\": "src/"
+    }
+  }
+}
