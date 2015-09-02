@@ -28,7 +28,7 @@ class PageController extends BackendController
             $query = new Query();
             $query->select('id, name AS text')->from(Page::tableName())->andWhere(
                 ['like', 'name', $search['term']]
-            )->andWhere(['active' => 1])->orderBy(['sort_order' => SORT_ASC, 'name' => SORT_ASC]);
+            )->andWhere(['published' => 1])->orderBy(['sort_order' => SORT_ASC, 'name' => SORT_ASC]);
             $command = $query->createCommand();
             $data = $command->queryAll();
 
