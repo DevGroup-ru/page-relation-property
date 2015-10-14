@@ -16,7 +16,11 @@ use app\modules\page\models\Page;
 use yii\helpers\ArrayHelper;
 
 $pagesIds = ArrayHelper::getColumn($values->values, 'value');
-$data = ArrayHelper::map(Page::findAll($pagesIds), 'id', 'name');
+$data = [];
+foreach ($values->values as $value) {
+    $page = Page::findOne($value['value']);
+    $data [$page->id] = $page->name;
+}
 
 ?>
 

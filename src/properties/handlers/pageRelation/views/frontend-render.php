@@ -20,7 +20,10 @@ use kartik\helpers\Html;
 
 $pagesIds = ArrayHelper::getColumn($values->values, 'value');
 /** @var Page[] $products */
-$pages = Page::findAll($pagesIds);
+$pages = [];
+foreach ($pagesIds as $id) {
+    $pages[] = Page::findOne($id);
+}
 
 ?>
 
