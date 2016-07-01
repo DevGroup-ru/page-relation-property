@@ -18,8 +18,10 @@ use yii\helpers\ArrayHelper;
 $pagesIds = ArrayHelper::getColumn($values->values, 'value');
 $data = [];
 foreach ($values->values as $value) {
-    $page = Page::findOne($value['value']);
-    $data [$page->id] = $page->name;
+    $page = Page::findById($value['value']);
+    if ($page !== null) {
+        $data [$page->id] = $page->name;
+    }
 }
 
 ?>

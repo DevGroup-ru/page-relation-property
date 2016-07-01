@@ -21,7 +21,10 @@ $pagesIds = ArrayHelper::getColumn($values->values, 'value');
 /** @var Page[] $pages */
 $pages = [];
 foreach ($pagesIds as $id) {
-    $pages[] = Page::findOne($id);
+    $_page = Page::findById($id);
+    if ($_page !== null) {
+        $pages[] = $_page;
+    }
 }
 
 ?>
